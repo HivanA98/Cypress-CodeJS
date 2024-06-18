@@ -1,0 +1,16 @@
+{
+  "name": "itommey",
+  "version": "1.00",
+  "main": "index.js",
+  "author": "ivan",
+  "license": "MIT",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "12.5.1",
+    "prettier": "^2.6.2"
+  }
+}
+
