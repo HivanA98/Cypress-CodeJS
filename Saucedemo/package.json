@@ -9,7 +9,7 @@
     "cy:run": "cypress run"
   },
   "devDependencies": {
-    "cypress": "latest",
+    "cypress": "^13.13.1",
     "prettier": "latest"
   }
 }
