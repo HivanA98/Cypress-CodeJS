@@ -8,6 +8,6 @@ describe('False Password', () => {
         steps.NormalUsername()
         steps.wrongPassword()
         steps.BtnLogin()
-        steps.FailedLogin()
+        steps.WrongCredential()
         });
     });
