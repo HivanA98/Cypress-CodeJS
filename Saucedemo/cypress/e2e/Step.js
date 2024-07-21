@@ -2,8 +2,10 @@
 const website = "https://www.saucedemo.com/"
 const name = "#user-name"
 const pass = "#password"
+const BtnCart = ".shopping_cart_link"
 const BtnLogin = "#login-button"
 const BtnFinish = "#finish"
+const BtnCheckout = "#checkout"
 const PrtBackpack = "#add-to-cart-sauce-labs-backpack"
 const PrtBikeLight = "#add-to-cart-sauce-labs-bike-light"
 const PrtBoltTShirt = "#add-to-cart-sauce-labs-bolt-t-shirt"
@@ -16,6 +18,9 @@ var NameLast = "A"
 const PostalCode = "#postal-code"
 var Postal = "20250"
 const BtnContinue = "#continue"
+const FinishTransaction = "#back-to-products"
+const problemUserError = ".error-message-container"
+const ErrorWarning = ".error-message-container"
 
 
 class Main {
@@ -80,13 +85,13 @@ class Main {
 
 
     static WrongCredential(){
-        cy.get('.error-message-container').should('be.visible')
-        cy.get('[class="error-message-container error"]').should('contain', 'Epic sadface: Username and password do not match any user in this service')
+        cy.get(ErrorWarning).should('be.visible')
+        cy.get(ErrorWarning).should('contain', 'Epic sadface: Username and password do not match any user in this service')
         }
 
     static LockedUser(){
-        cy.get('.error-message-container').should('be.visible')
-        cy.get('[class="error-message-container error"]').should('contain', 'Epic sadface: Sorry, this user has been locked out.')
+        cy.get(ErrorWarning).should('be.visible')
+        cy.get(ErrorWarning).should('contain', 'Epic sadface: Sorry, this user has been locked out.')
         }
 
     static addItems(){
@@ -102,22 +107,43 @@ class Main {
         cy.get(PrtOnesie).click()
     }
 
-    static Addreas(){
-        cy.get('.shopping_cart_link').click()
+    static CartMenu(){
+        cy.get(BtnCart).should('be.visible')
+        cy.get(BtnCart).click()
+        cy.get(BtnCheckout).not('[disabled]')
+        cy.get(BtnCheckout).click()
+    }
+
+    static AddreasFirstName(){
         cy.get(FirstName).click().should('have.value', '')
         cy.get(FirstName).type(NameFirst)
         cy.get(FirstName).should('have.value', NameFirst)
+    }
+
+    static AddreasLastName(){
         cy.get(LastName).click().should('have.value', '')
         cy.get(LastName).type(NameLast)
         cy.get(LastName).should('have.value', NameLast)
+    }
+
+    static AddreasPostalCode(){
         cy.get(PostalCode).click().should('have.value', '')
         cy.get(PostalCode).type(Postal)
         cy.get(PostalCode).should('have.value', Postal)
+    }
+
+    static Finish(){
         cy.get(BtnContinue).not('[disabled]')
         cy.get(BtnContinue).click()
         cy.get(BtnFinish).not('[disabled]')
         cy.get(BtnFinish).click()
+        cy.get(FinishTransaction).should('contain', 'Back Home')
+    }
+
+    static errorProblemUser(){
+        cy.get(problemUserError).should("contains, 'Error: Last Name is required'")
     }
 }
+
 
 export default Main;
