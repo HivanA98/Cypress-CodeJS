@@ -79,11 +79,15 @@ class Main {
     }
 
 
-    static FailedLogin(){
+    static WrongCredential(){
         cy.get('.error-message-container').should('be.visible')
         cy.get('[class="error-message-container error"]').should('contain', 'Epic sadface: Username and password do not match any user in this service')
-        
-    }
+        }
+
+    static LockedUser(){
+        cy.get('.error-message-container').should('be.visible')
+        cy.get('[class="error-message-container error"]').should('contain', 'Epic sadface: Sorry, this user has been locked out.')
+        }
 
     static addItems(){
         cy.get(PrtBackpack).should('be.visible')
