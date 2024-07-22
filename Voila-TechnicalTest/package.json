@@ -3,5 +3,8 @@
     "@badeball/cypress-cucumber-preprocessor": "latest",
     "@cypress/browserify-preprocessor": "latest",
     "cypress": "latest"
+  },
+  "devDependencies": {
+    "cypress-cucumber-preprocessor": "^4.3.1"
   }
 }
