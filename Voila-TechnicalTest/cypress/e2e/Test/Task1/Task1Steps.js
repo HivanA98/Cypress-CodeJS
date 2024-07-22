@@ -1,4 +1,17 @@
 var website = "https://voila.id"
+var namePlace = "input[name='identifier']"
+var passPlace = "input[name='password']"
+var addToBag = "[data-test-id='CT-add-to-bag-desktop']"
+var cartMenu = "[data-test-id='CT_Component_CartMenu']"
+var BtnCheckout = "[data-test-id='CT_Component_btnCheckout']"
+var ClickProduct = "[data-test-id='CT_component_image_list-CT_component_VariantColorItem']"
+var NameProduct = "Moonshine Tuck Midi Dress Vanilla"
+var newNameProduct = "Moonshine Tuck Midi Dress Vanilla"
+var lastPrice = "[class='_17zx15t9s _17zx15te8 _17zx15tgg']"
+var BtnPayment = "[data-test-id='CT_Component_SelectorPayment_ButtonPayment']"
+const Signin = "._3syuln7"
+const BtnLogin = ".x63gt40"
+const H2Signin = "._17zx15te8"
 
 
 class Task1Steps {
@@ -9,40 +22,40 @@ class Task1Steps {
     static Login(){
     
         cy.fixture("username").then(username => {
-        cy.get("._3syuln7").click()
-        cy.get("._17zx15te8").should('have.class', '_17zx15te8')
-            cy.get("input[name='identifier']").type(username.email);
-            cy.get("input[name='identifier']").should('have.value', username.email)
-            cy.get("input[name='password']").type(username.password);
-            cy.get("input[name='password']").should('have.value', username.password)
+        cy.get(Signin).click()
+        cy.get(H2Signin).should('contain', 'Sign In')
+            cy.get(namePlace).type(username.email)
+            cy.get(namePlace).should('have.value', username.email)
+            cy.get(passPlace).type(username.password)
+            cy.get(passPlace).should('have.value', username.password)
              })
-        cy.get('.x63gt40').should('be.visible').and('not.be.disabled');
-        cy.get('.x63gt40').click()    
+        cy.get(BtnLogin).should('be.visible').and('not.be.disabled');
+        cy.get(BtnLogin).click()    
     }
 
     static Search(){
         cy.get('._17zx15te8').should('exist')
         cy.get('._18krchz0').click()
-        cy.get("[data-test-id='CT-Search-Input']").type('Moonshine Tuck Midi Dress Vanilla') //Jika barang habis ganti jenis produk disini
+        cy.get("[data-test-id='CT-Search-Input']").type(NameProduct) //Jika barang habis ganti jenis produk disini
         cy.get('[class="_15kd2we1c   _15r4f4dfz   _17zx15te8  _1ccbe2wb"]').eq(1).click()
-        cy.get('[data-test-id="CT_component_image_list-CT_component_VariantColorItem"]').should('exist')
-        cy.get('[data-test-id="CT_component_image_list-CT_component_VariantColorItem"]').click()
+        cy.get(ClickProduct).should('exist')
+        cy.get(ClickProduct).click()
     }
 
     static Addtocart(){
-        cy.get('[data-test-id="CT-add-to-bag-desktop"]').click()
-        cy.get('[data-test-id="CT_Component_CartMenu"]').click()
+        cy.get(addToBag).click()
+        cy.get(cartMenu).click()
     }
 
     static Checkout(){
-        cy.get('[data-test-id="CT_Component_btnCheckout"]').should('exist')
-        cy.get('[data-test-id="CT_Component_btnCheckout"]').click()
+        cy.get(BtnCheckout).should('exist').click()
 
-    cy.get('[data-test-id="CT_Component_DeliveryCard"]').should('exist')
+        cy.get('[data-test-id="CT_Component_DeliveryCard"]').should('exist')
     }
 
     static SelectPayment(){
-        cy.get('[data-test-id="CT_Component_SelectorPayment_ButtonPayment"]').eq(1).click()
+        cy.get(BtnPayment = "[data-test-id='CT_Component_SelectorPayment_ButtonPayment']"
+        ).eq(1).click()
         cy.get('[class="_15kd2weog      _17zx15te8  _1ccbe2wb"]').eq(1).click()
         cy.get('[class="_15kd2we1ds   _15r4f4dly"]').eq(0).click()
         cy.get('[data-test-id="CT_Component_PaymentListFooter_ButtonConfirm"]').click()
@@ -62,7 +75,7 @@ class Task1Steps {
         cy.get('[data-test-id="CT_Component_btnPlaceOrder"]').click()
     
         cy.get('@price').then((price) => {
-          cy.get('[class="_17zx15t9s _17zx15te8 _17zx15tgg"]').eq(1).should('have.text', price.trim())
+          cy.get(lastPrice).eq(1).should('have.text', price.trim())
         }
     )}
 }
