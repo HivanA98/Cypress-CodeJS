@@ -12,6 +12,7 @@ var BtnPayment = "[data-test-id='CT_Component_SelectorPayment_ButtonPayment']"
 const Signin = "._3syuln7"
 const BtnLogin = ".x63gt40"
 const H2Signin = "._17zx15te8"
+const Search = "[data-test-id='CT-Search-Input']"
 
 
 class Task1Steps {
@@ -36,7 +37,7 @@ class Task1Steps {
     static Search(){
         cy.get('._17zx15te8').should('exist')
         cy.get('._18krchz0').click()
-        cy.get("[data-test-id='CT-Search-Input']").type(NameProduct) //Jika barang habis ganti jenis produk disini
+        cy.get(Search).type(NameProduct) //Jika barang habis ganti jenis produk disini
         cy.get('[class="_15kd2we1c   _15r4f4dfz   _17zx15te8  _1ccbe2wb"]').eq(1).click()
         cy.get(ClickProduct).should('exist')
         cy.get(ClickProduct).click()
