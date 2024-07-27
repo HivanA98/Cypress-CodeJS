@@ -35,7 +35,7 @@ class Task1Steps {
     }
 
     static Search(){
-        cy.get('._17zx15te8').should('exist')
+        cy.get(H2Signin).should('exist').and('be.visible')
         cy.get('._18krchz0').click()
         cy.get(Search).type(NameProduct) //Jika barang habis ganti jenis produk disini
         cy.get('[class="_15kd2we1c   _15r4f4dfz   _17zx15te8  _1ccbe2wb"]').eq(1).click()
