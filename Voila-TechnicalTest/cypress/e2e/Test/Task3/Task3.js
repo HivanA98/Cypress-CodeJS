@@ -1,12 +1,6 @@
 /// <reference types="cypress" />
-
 import {Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import Task3 from './Task3Step'
-
-
-before(() => {
-    cy.intercept({ resourceType: /xhr|fetch/ }, { log: false });
-});
 
 Given ("When The user already choose a product", () => {
     Task3.URL()
