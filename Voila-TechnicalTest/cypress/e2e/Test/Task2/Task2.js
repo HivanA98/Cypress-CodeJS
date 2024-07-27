@@ -1,10 +1,5 @@
 /// <reference types="cypress" />
-
 import {Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-
-before(() => {
-    cy.intercept({ resourceType: /xhr|fetch/ }, { log: false });
-});
 
 Given ("The user visit the website", () => {
     cy.visit('https://voila.id')
