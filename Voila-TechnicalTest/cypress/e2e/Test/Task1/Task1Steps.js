@@ -5,14 +5,16 @@ var addToBag = "[data-test-id='CT-add-to-bag-desktop']"
 var cartMenu = "[data-test-id='CT_Component_CartMenu']"
 var BtnCheckout = "[data-test-id='CT_Component_btnCheckout']"
 var ClickProduct = "[data-test-id='CT_component_image_list-CT_component_VariantColorItem']"
-var NameProduct = "Moonshine Tuck Midi Dress Vanilla"
+var NameProduct = {"Moonshine Tuck Midi Dress Vanilla", "Moonshine Tuck Midi Dress Vanilla"}
 var newNameProduct = "Moonshine Tuck Midi Dress Vanilla"
 var lastPrice = "[class='_17zx15t9s _17zx15te8 _17zx15tgg']"
 var BtnPayment = "[data-test-id='CT_Component_SelectorPayment_ButtonPayment']"
 const Signin = "._3syuln7"
 const BtnLogin = ".x63gt40"
 const H2Signin = "._17zx15te8"
+const BtnSearch = "._18krchz0"
 const Search = "[data-test-id='CT-Search-Input']"
+const ItemIcon = "[class='_15kd2we1c   _15r4f4dfz   _17zx15te8  _1ccbe2wb']"
 
 
 class Task1Steps {
@@ -36,9 +38,9 @@ class Task1Steps {
 
     static Search(){
         cy.get(H2Signin).should('exist').and('be.visible')
-        cy.get('._18krchz0').click()
+        cy.get(BtnSearch).click()
         cy.get(Search).type(NameProduct) //Jika barang habis ganti jenis produk disini
-        cy.get('[class="_15kd2we1c   _15r4f4dfz   _17zx15te8  _1ccbe2wb"]').eq(1).click()
+        cy.get(ItemIcon).eq(1).click()
         cy.get(ClickProduct).should('exist')
         cy.get(ClickProduct).click()
     }
