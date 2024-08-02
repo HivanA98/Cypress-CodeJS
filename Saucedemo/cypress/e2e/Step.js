@@ -95,8 +95,8 @@ class Main {
         }
 
     static addItems(){
-        cy.get(PrtBackpack).should('be.visible')
-        cy.get(PrtBackpack).click()
+        cy.get().should('be.visible')
+        cy.get().click()
         cy.get(PrtBikeLight).should('be.visible')
         cy.get(PrtBikeLight).click()
         cy.get(PrtBoltTShirt).should('be.visible')
