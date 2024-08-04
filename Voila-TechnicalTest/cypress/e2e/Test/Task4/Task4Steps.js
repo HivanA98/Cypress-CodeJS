@@ -1,5 +1,20 @@
 var website = "https://voila.id"
-var Nama = 'Siapa saya'
+var namePlace = "input[name='identifier']"
+var passPlace = "input[name='password']"
+var addToBag = "[data-test-id='CT-add-to-bag-desktop']"
+var cartMenu = "[data-test-id='CT_Component_CartMenu']"
+var BtnCheckout = "[data-test-id='CT_Component_btnCheckout']"
+var ClickProduct = "[data-test-id='CT_component_image_list-CT_component_VariantColorItem']"
+var NameProduct = {"Moonshine Tuck Midi Dress Vanilla", "Moonshine Tuck Midi Dress Vanilla"}
+var newNameProduct = "Moonshine Tuck Midi Dress Vanilla"
+var lastPrice = "[class='_17zx15t9s _17zx15te8 _17zx15tgg']"
+var BtnPayment = "[data-test-id='CT_Component_SelectorPayment_ButtonPayment']"
+const Signin = "._3syuln7"
+const BtnLogin = ".x63gt40"
+const H2Signin = "._17zx15te8"
+const BtnSearch = "._18krchz0"
+const Search = "[data-test-id='CT-Search-Input']"
+const ItemIcon = "[class='_15kd2we1c   _15r4f4dfz   _17zx15te8  _1ccbe2wb']"
 
 
 class Task4Steps {
@@ -10,15 +25,15 @@ class Task4Steps {
     static Login(){
     
         cy.fixture("username").then(username => {
-        cy.get("._3syuln7").click()
-        cy.get("._17zx15te8").should('have.class', '_17zx15te8')
-            cy.get("input[name='identifier']").type(username.email);
-            cy.get("input[name='identifier']").should('have.value', username.email)
-            cy.get("input[name='password']").type(username.password);
-            cy.get("input[name='password']").should('have.value', username.password)
+        cy.get(Signin).click()
+        cy.get(H2Signin).should('contain', 'Sign In')
+            cy.get(namePlace).type(username.email)
+            cy.get(namePlace).should('have.value', username.email)
+            cy.get(passPlace).type(username.password)
+            cy.get(passPlace).should('have.value', username.password)
              })
-        cy.get('.x63gt40').should('be.visible').and('not.be.disabled');
-        cy.get('.x63gt40').click()    
+        cy.get(BtnLogin).should('be.visible').and('not.be.disabled');
+        cy.get(BtnLogin).click()    
     }
 
     static ProfileMenu(){
