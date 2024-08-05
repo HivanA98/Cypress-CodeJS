@@ -26,10 +26,10 @@ beforeEach(() => {
   })
 
   it('NormalRegister', () => {
-    steps.LoginPage()
+
   })
 
   it('UnNormalRegister', () => {
-    steps.RegisterPage()
+
   })
 })

@@ -2,9 +2,10 @@
 import steps from './Step'
 
 describe('All Account Login', () => {
-    
+    beforeEach(() => {
+        steps.visit()
+    })
     it('visit standard_user', () => {
-        steps.URL()
         steps.NormalUsername()
         steps.Password()
         steps.BtnLogin()
@@ -17,7 +18,6 @@ describe('All Account Login', () => {
         });
 
     it('visit locked_out_user', () => {
-        steps.URL()
         steps.LockedUsername()
         steps.Password()
         steps.BtnLogin()
@@ -25,7 +25,6 @@ describe('All Account Login', () => {
         });   
             
     it('visit problem_user', () => {
-        steps.URL()
         steps.ProblemUsername()
         steps.Password()
         steps.BtnLogin()
@@ -37,7 +36,6 @@ describe('All Account Login', () => {
         });
                 
     it('visit performance_glitch_user', () => {
-        steps.URL()
         steps.PerformanceUsername()
         steps.Password()
         steps.BtnLogin()
