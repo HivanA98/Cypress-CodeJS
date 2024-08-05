@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "cypress": "latest",
+    "cypress-cucumber-preprocessor": "latest",
+    "cypress-multi-reporters": "latest",
+    "cypress-pipe": "latest",
+    "cypress-wait-until": "latest",
+    "cypress-xpath": "latest",
+    "mochawesome": "latest",
+    "mochawesome-merge": "latest",
+    "mochawesome-report-generator": "latest"
+  }
+}
