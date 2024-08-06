@@ -9,4 +9,15 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
   },
+
+  reporter: "cypress-multi-reporters",
+  reporterOptions: {
+    reporterEnabled: "mochawesome",
+    mochawesomeReporterOptions: {
+      reportDir: "cypress/reports",
+      overwrite: false,
+      html: false,
+      json: true
+    }
+  }
 });
