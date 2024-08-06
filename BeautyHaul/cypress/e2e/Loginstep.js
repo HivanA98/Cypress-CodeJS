@@ -47,7 +47,6 @@ class Login {
               })
           })
     }
-    ///
     static NormalLengthValidationPassword(){
         cy.get(PasswordLogin)
         .each(($el) => {
@@ -111,13 +110,8 @@ class Login {
               })
           })
     }
-
-
 }
-
-
-
-export default Login;
+export default Login
 
 
 
