@@ -23,4 +23,15 @@ module.exports = defineConfig({
     baseUrl: "https://voila.id",
 
   },
+
+  reporter: "cypress-multi-reporters",
+  reporterOptions: {
+    reporterEnabled: "mochawesome",
+    mochawesomeReporterOptions: {
+      reportDir: "cypress/reports",
+      overwrite: false,
+      html: false,
+      json: true
+    }
+  }
 });
