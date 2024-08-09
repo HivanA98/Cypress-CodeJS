@@ -1,14 +1,13 @@
 /// <reference types="cypress" />
-import Loginsteps from './Loginstep'
-import Registersteps from './Registerstep'
-
+import Loginsteps from '../stepsDefinition/Loginstep'
+import Registersteps from '../stepsDefinition/Registerstep';
 describe('Login', () => {
   
 beforeEach(() => {
   Loginsteps.LoginPage()
   })
   
-  it('NormalLogin', () => {
+  it.only('NormalLogin', () => {
     Loginsteps.LoginPage()
     Loginsteps.NormalInputUsernameLogin()
     Loginsteps.NormalInputPasswordLogin()
