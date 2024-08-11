@@ -19,7 +19,7 @@ Package
 
 ##
 Version Control Configuration
-Example:2.1.3
-2 = New Feature
-1 = New Test Case
-3 = New Improvment
+- Example: V.2.1.3
+  - 2 = New Feature
+  - 1 = New Test Case
+  - 3 = New Improvment
