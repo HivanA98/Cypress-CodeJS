@@ -1,0 +1,11 @@
+{
+    "username": "standard_user",
+    "username1": "locked_out_user",
+    "username2": "problem_user",
+    "username3": "performance_glitch_user",
+    "username4": "error_user",
+    "username5": "visual_user",
+    "password": "secret_sauce",
+    "wrongpassword": "secret"
+}
+  
