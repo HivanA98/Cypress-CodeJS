@@ -6,6 +6,8 @@ const NormalUser = "Ivan"
 const NormalPass = "Password!2#"
 const UnnormalUser = "N@"
 const UnnormalPass = "pwd"
+const BtnSignin = "[class='btn btn-block btn-primary']"
+const ErrorWarning = '[class="error invalid-feedback"]'
 
 class Login {
     static LoginPage(){
@@ -18,6 +20,13 @@ class Login {
     static NormalInputPasswordLogin(){
         cy.get(PasswordLogin).type(NormalPass)
         cy.get(PasswordLogin).should('have.value', NormalPass)
+    }
+    static BtnLogin(){
+        cy.get(BtnSignin).eq(0).should('be.visible')
+        cy.get(BtnSignin).eq(0).click()
+    }
+    static WarningMessage(){
+        cy.get(ErrorWarning).should('be.visible')
     }
     static UnNormalInputUsernameLogin(){
         cy.get(UsernameLogin).type(UnnormalUser)
