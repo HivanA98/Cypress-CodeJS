@@ -1,48 +1,13 @@
 /// <reference types="cypress" />
-import Loginsteps from '../stepsDefinition/Loginstep'
-import Registersteps from '../stepsDefinition/Registerstep';
-describe('Login', () => {
-  
-beforeEach(() => {
-  Loginsteps.LoginPage()
-  })
-  
-  it.only('NormalLogin', () => {
-    Loginsteps.LoginPage()
-    Loginsteps.NormalInputUsernameLogin()
-    Loginsteps.NormalInputPasswordLogin()
-    Loginsteps.NormalLengthValidationUsername()
-    Loginsteps.NormalWordValidationUsername()
-    Loginsteps.NormalLengthValidationPassword()
-    Loginsteps.NormalWordValidationPassword()
-  })
-  it('UnNormalUsername', () => {
-    Loginsteps.LoginPage()
-    Loginsteps.UnNormalInputUsernameLogin()
-    Loginsteps.UnNormalLengthValidationUsername()
-    Loginsteps.UnNormalWordValidationUsername()
-    Loginsteps.NormalInputPasswordLogin()
-    Loginsteps.NormalLengthValidationPassword()
-    Loginsteps.NormalWordValidationPassword()
-  })
-  it('UnNormalPassword', () => {
-    Loginsteps.LoginPage()
-    Loginsteps.NormalInputUsernameLogin()
-    Loginsteps.NormalLengthValidationUsername()
-    Loginsteps.NormalWordValidationUsername()
-    Loginsteps.UnNormalInputPasswordLogin()
-    Loginsteps.UnNormalLengthValidationPassword()
-    Loginsteps.UnNormalWordValidationPassword()
-  })
-})
+import Registersteps from '../stepsDefinition/Registerstep'
 
 describe('Register', () => {
 
 beforeEach(() => {
-  Registersteps.RegisterPage()
-  })
-
-  it('NormalRegister', () => {
+    Registersteps.RegisterPage()
+    })
+    
+it('NormalRegister', () => {
     Registersteps.NormalInputFirstName()
     Registersteps.ValidationFirstNamePositive
     Registersteps.NormalInputLastName()
@@ -56,9 +21,9 @@ beforeEach(() => {
     Registersteps.SelectDate()
     Registersteps.SelectMonth()
     Registersteps.SelectYear()
-  })
-
-  it('FirstNameNegative', () => {
+    })
+    
+it('FirstNameNegative', () => {
     Registersteps.UnNormalInputFirstName()
     Registersteps.ValidationFirstNameNegative()
     Registersteps.NormalInputLastName()
@@ -70,8 +35,8 @@ beforeEach(() => {
     Registersteps.SelectDate()
     Registersteps.SelectMonth()
     Registersteps.SelectYear()
-  })
-  it('LastNameNegative', () => {
+    })
+it('LastNameNegative', () => {
     Registersteps.NormalInputFirstName()
     Registersteps.ValidationFirstNamePositive
     Registersteps.UnNormalInputLastName()
@@ -85,8 +50,8 @@ beforeEach(() => {
     Registersteps.SelectDate()
     Registersteps.SelectMonth()
     Registersteps.SelectYear()
-  })
-  it('PasswordNegativeAndNotSame', () => {
+    })
+it('PasswordNegativeAndNotSame', () => {
     Registersteps.NormalInputFirstName()
     Registersteps.ValidationFirstNamePositive
     Registersteps.NormalInputLastName()
@@ -100,8 +65,8 @@ beforeEach(() => {
     Registersteps.SelectDate()
     Registersteps.SelectMonth()
     Registersteps.SelectYear()
-  })
-  it('ConfirmPasswordNegative', () => {
+    })
+it('ConfirmPasswordNegative', () => {
     Registersteps.NormalInputFirstName()
     Registersteps.ValidationFirstNamePositive
     Registersteps.NormalInputLastName()
@@ -115,5 +80,5 @@ beforeEach(() => {
     Registersteps.SelectDate()
     Registersteps.SelectMonth()
     Registersteps.SelectYear()
-  })
+    })
 })
