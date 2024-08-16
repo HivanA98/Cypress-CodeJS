@@ -1,19 +1,20 @@
 /// <reference types="cypress" />
+import steps from 'step.js'
 
 describe('Technical Test', () => {
     
     
     it('Assignment', () => {
-        cy.visit('https://rahulshettyacademy.com/angularpractice/')
+        cy.visit('/angularpractice/')
 
         cy.fixture("user").then(user => {
-            cy.get('[minlength="2"]').type(user.Name);
+            cy.get(steps.InputName).type(user.Name);
 
-            cy.get('[name="email"]').type(user.Email);
+            cy.get(steps.InputEmail).type(user.Email);
 
-            cy.get('#exampleInputPassword1').type(user.password);
+            cy.get(steps.InputPassword).type(user.password);
 
-            cy.get('[name="bday"]').type(user.Birthday)
+            cy.get(steps.InputBirthday).type(user.Birthday)
              })
 
         cy.get('#exampleCheck1').click()
