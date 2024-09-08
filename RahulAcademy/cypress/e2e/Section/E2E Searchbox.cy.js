@@ -17,9 +17,9 @@ describe('Technical Test', () => {
             cy.get(steps.InputBirthday).type(user.Birthday)
              })
 
-        cy.get('#exampleCheck1').click()
+        cy.get(steps.ExampleCheck).click()
 
-        cy.get('#exampleFormControlSelect1').select('Male')
+        cy.get(steps.formControlSelect).select('Male')
 
         cy.get('#inlineRadio1').click()
 
