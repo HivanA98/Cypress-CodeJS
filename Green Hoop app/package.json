@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "cypress": "latest",
+    "cypress": "^14.2.1",
     "cypress-cucumber-preprocessor": "latest",
     "cypress-multi-reporters": "latest",
     "cypress-pipe": "latest",

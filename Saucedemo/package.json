@@ -9,7 +9,7 @@
     "cy:run": "cypress run"
   },
   "devDependencies": {
-    "cypress": "latest",
+    "cypress": "^14.2.1",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-multi-reporters": "^1.6.4",
     "cypress-pipe": "^2.0.0",
