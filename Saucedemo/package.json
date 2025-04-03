@@ -1,22 +1,27 @@
 {
-  "name": "edu",
+  "name": "Ivan",
   "version": "1.00",
   "main": "index.js",
   "author": "ivan",
   "license": "MIT",
   "scripts": {
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "cy:run:chrome": "cypress run --browser chrome",
+    "cy:run:firefox": "cypress run --browser firefox",
+    "cy:run:edge": "cypress run --browser edge",
+    "cy:report": "mochawesome-merge ./cypress/reports/*.json | mochawesome-report-generator -o ./cypress/reports/html",
+    "cy:run:junit": "cypress run --reporter junit --reporter-options mochaFile=cypress/reports/junit/test-results-[hash].xml"
   },
   "devDependencies": {
     "cypress": "^14.2.1",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-multi-reporters": "^1.6.4",
-    "cypress-pipe": "^2.0.0",
+    "cypress-pipe": "^2.0.1",
     "cypress-wait-until": "^3.0.2",
     "cypress-xpath": "^2.0.1",
     "mochawesome": "^7.1.3",
-    "mochawesome-merge": "^4.3.0",
+    "mochawesome-merge": "^4.4.1",
     "mochawesome-report-generator": "^6.2.0",
     "prettier": "latest"
   }
