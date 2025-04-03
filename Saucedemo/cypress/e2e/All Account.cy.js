@@ -3,9 +3,9 @@ import steps from './Step'
 
 describe('All Account Login', () => {
     beforeEach(() => {
-        steps.visit()
+        steps.URL()
     })
-    it('visit standard_user', () => {
+    it.only('visit standard_user', () => {
         steps.NormalUsername()
         steps.Password()
         steps.BtnLogin()
