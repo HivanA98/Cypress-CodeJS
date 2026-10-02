@@ -21,11 +21,11 @@ Practice applications from **[rahulshettyacademy.com](https://rahulshettyacademy
 
 ## 🧪 Test coverage
 
-| Spec | Application | Tests | Scenarios |
-| --- | --- | :-: | --- |
-| `angular-form.cy.js` | ProtoCommerce form | 5 | Submit, two-way binding, min length, required, disabled option |
-| `shop.cy.js` | ProtoCommerce shop | 4 | Product list, cart counter, grand total, E2E purchase |
-| `automation-practice.cy.js` | Automation Practice | 11 | Radio, checkbox, dropdown, autocomplete, show/hide, alerts, tables, new tab, hover |
+| Spec                        | Application         | Tests | Scenarios                                                                          |
+| --------------------------- | ------------------- | :---: | ---------------------------------------------------------------------------------- |
+| `angular-form.cy.js`        | ProtoCommerce form  |   5   | Submit, two-way binding, min length, required, disabled option                     |
+| `shop.cy.js`                | ProtoCommerce shop  |   4   | Product list, cart counter, grand total, E2E purchase                              |
+| `automation-practice.cy.js` | Automation Practice |  11   | Radio, checkbox, dropdown, autocomplete, show/hide, alerts, tables, new tab, hover |
 
 ```js
 it('sums the amounts in the fixed header table', () => {

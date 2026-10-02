@@ -5,11 +5,7 @@ class FramesPage extends BasePage {
 
   /** Ambil body dari iframe (same-origin) agar bisa di-query seperti elemen biasa. */
   frameBody(frameId) {
-    return cy
-      .get(`#${frameId}`)
-      .its('0.contentDocument.body')
-      .should('not.be.empty')
-      .then(cy.wrap)
+    return cy.get(`#${frameId}`).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap)
   }
 
   frameHeading(frameId) {

@@ -59,9 +59,7 @@ class InventoryPage extends BasePage {
 
   /** Mengembalikan chainable berisi array harga (number) sesuai urutan di layar. */
   getProductPrices() {
-    return this.itemPrices.then(($els) =>
-      Cypress._.map($els, (el) => Number(el.innerText.replace('$', ''))),
-    )
+    return this.itemPrices.then(($els) => Cypress._.map($els, (el) => Number(el.innerText.replace('$', ''))))
   }
 
   shouldBeDisplayed() {

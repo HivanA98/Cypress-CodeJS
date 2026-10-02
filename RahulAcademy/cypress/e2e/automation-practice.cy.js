@@ -59,7 +59,9 @@ describe('Automation Practice', () => {
   context('Tables', () => {
     it('finds the price of a specific course', () => {
       page.getCourses().then((courses) => {
-        const course = courses.find((c) => c.course.includes('Master Selenium Automation in simple Python Language'))
+        const course = courses.find((c) =>
+          c.course.includes('Master Selenium Automation in simple Python Language'),
+        )
         expect(course.price).to.eq(25)
       })
     })

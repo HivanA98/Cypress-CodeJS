@@ -31,10 +31,10 @@ Scenario: Empty registration form shows all required errors
 
 ## 🧪 Features
 
-| Feature | Scenarios | Covers |
-| --- | :-: | --- |
-| `login.feature` | 3 | Empty form, invalid email, wrong credentials (stubbed 401) |
-| `register.feature` | 10 | Required fields, field validation, password confirmation, sanitizing |
+| Feature            | Scenarios | Covers                                                               |
+| ------------------ | :-------: | -------------------------------------------------------------------- |
+| `login.feature`    |     3     | Empty form, invalid email, wrong credentials (stubbed 401)           |
+| `register.feature` |    10     | Required fields, field validation, password confirmation, sanitizing |
 
 ## 🗂️ Project structure
 

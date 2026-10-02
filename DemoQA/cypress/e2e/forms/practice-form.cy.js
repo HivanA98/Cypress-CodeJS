@@ -15,7 +15,9 @@ describe('Forms - Practice Form', () => {
     practiceFormPage.fillForm(student).submit()
 
     practiceFormPage.resultModal.should('contain.text', 'Thanks for submitting the form')
-    practiceFormPage.resultValue('Student Name').should('have.text', `${student.firstName} ${student.lastName}`)
+    practiceFormPage
+      .resultValue('Student Name')
+      .should('have.text', `${student.firstName} ${student.lastName}`)
     practiceFormPage.resultValue('Student Email').should('have.text', student.email)
     practiceFormPage.resultValue('Gender').should('have.text', student.gender)
     practiceFormPage.resultValue('Mobile').should('have.text', student.mobile)

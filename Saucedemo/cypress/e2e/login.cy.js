@@ -24,9 +24,7 @@ describe('Login', () => {
 
   context('Negative', () => {
     it('shows an error for locked_out_user', () => {
-      loginPage
-        .login(users.locked.username, users.locked.password)
-        .shouldShowError(messages.login.lockedOut)
+      loginPage.login(users.locked.username, users.locked.password).shouldShowError(messages.login.lockedOut)
     })
 
     it('shows an error for a wrong password', () => {

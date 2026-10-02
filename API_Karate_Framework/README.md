@@ -33,10 +33,10 @@ Scenario: Create a post
 
 ## 🧪 Test coverage
 
-| Feature | Scenarios | Covers |
-| --- | :-: | --- |
-| `posts.feature` | 12 | List + schema, get by id, filter, comments, 404, POST, PUT, PATCH, DELETE, outline per user |
-| `users.feature` | 4 | List + schema, chained request, unique emails, response time |
+| Feature         | Scenarios | Covers                                                                                      |
+| --------------- | :-------: | ------------------------------------------------------------------------------------------- |
+| `posts.feature` |    12     | List + schema, get by id, filter, comments, 404, POST, PUT, PATCH, DELETE, outline per user |
+| `users.feature` |     4     | List + schema, chained request, unique emails, response time                                |
 
 ## 🗂️ Project structure
 

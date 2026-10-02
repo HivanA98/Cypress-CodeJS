@@ -1,0 +1,18 @@
+{
+  "name": "qa-automation-portfolio",
+  "version": "2.0.0",
+  "description": "QA automation portfolio – Cypress, Cucumber and Karate test suites",
+  "private": true,
+  "author": "Ivan Armadi",
+  "license": "MIT",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "format": "prettier --write \"**/*.{js,json,md,yml}\"",
+    "format:check": "prettier --check \"**/*.{js,json,md,yml}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.9.9"
+  }
+}

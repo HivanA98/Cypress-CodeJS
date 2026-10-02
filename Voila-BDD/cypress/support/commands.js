@@ -8,7 +8,9 @@ import { loginPage } from '../pages'
 Cypress.Commands.add('loginWithTestAccount', () => {
   cy.env(['VOILA_EMAIL', 'VOILA_PASSWORD']).then(({ VOILA_EMAIL, VOILA_PASSWORD }) => {
     if (!VOILA_EMAIL || !VOILA_PASSWORD) {
-      throw new Error('VOILA_EMAIL / VOILA_PASSWORD belum diisi. Salin cypress.env.example.json ke cypress.env.json.')
+      throw new Error(
+        'VOILA_EMAIL / VOILA_PASSWORD belum diisi. Salin cypress.env.example.json ke cypress.env.json.',
+      )
     }
 
     cy.session(['voila', VOILA_EMAIL], () => {

@@ -22,16 +22,16 @@ A tour of the trickiest UI interactions on **[demoqa.com](https://demoqa.com)** 
 
 ## 🧪 Test coverage
 
-| Area | Spec | Tests | What is tested |
-| --- | --- | :-: | --- |
-| Elements | `text-box.cy.js` | 2 | Output panel, invalid email |
-| | `check-box.cy.js` | 2 | Tree selection – root, nested, mixed state |
-| | `radio-button.cy.js` | 3 | Selection & disabled option |
-| | `web-tables.cy.js` | 5 | **Full CRUD**, search, validation |
-| | `buttons.cy.js` | 3 | Double, right and dynamic-id click |
-| Forms | `practice-form.cy.js` | 3 | Full form + summary modal, required only, validation |
-| Alerts & Windows | `alerts.cy.js` | 5 | Alert, timed alert, confirm OK/Cancel, prompt |
-| | `frames-windows.cy.js` | 5 | Iframes, new tab, new window |
+| Area             | Spec                   | Tests | What is tested                                       |
+| ---------------- | ---------------------- | :---: | ---------------------------------------------------- |
+| Elements         | `text-box.cy.js`       |   2   | Output panel, invalid email                          |
+|                  | `check-box.cy.js`      |   2   | Tree selection – root, nested, mixed state           |
+|                  | `radio-button.cy.js`   |   3   | Selection & disabled option                          |
+|                  | `web-tables.cy.js`     |   5   | **Full CRUD**, search, validation                    |
+|                  | `buttons.cy.js`        |   3   | Double, right and dynamic-id click                   |
+| Forms            | `practice-form.cy.js`  |   3   | Full form + summary modal, required only, validation |
+| Alerts & Windows | `alerts.cy.js`         |   5   | Alert, timed alert, confirm OK/Cancel, prompt        |
+|                  | `frames-windows.cy.js` |   5   | Iframes, new tab, new window                         |
 
 ```js
 it('shows an alert after 5 seconds', () => {

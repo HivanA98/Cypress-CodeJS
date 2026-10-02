@@ -18,12 +18,9 @@ When('I proceed to checkout', () => {
   cartPage.checkout()
 })
 
-When(
-  'I fill in my information with {string}, {string} and {string}',
-  (firstName, lastName, postalCode) => {
-    checkoutPage.fillInformation({ firstName, lastName, postalCode }).continue()
-  },
-)
+When('I fill in my information with {string}, {string} and {string}', (firstName, lastName, postalCode) => {
+  checkoutPage.fillInformation({ firstName, lastName, postalCode }).continue()
+})
 
 When('I finish the order', () => {
   checkoutPage.finish()

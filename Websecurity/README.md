@@ -26,7 +26,9 @@ Cypress.Commands.add('loginByApi', () => {
         form: true,
         body: { user_login: valid.username, user_password: valid.password, submit: 'Sign in' },
         followRedirect: false,
-      }).its('status').should('eq', 302)
+      })
+        .its('status')
+        .should('eq', 302)
     })
   })
 })
@@ -36,11 +38,11 @@ The login **UI itself** is still covered in `login.cy.js`.
 
 ## 🧪 Test coverage
 
-| Spec | Tests | Scenarios |
-| --- | :-: | --- |
-| `login.cy.js` | 4 | Valid login, invalid password, logout, anonymous redirect |
-| `banking.cy.js` | 5 | Account summary, tab navigation, transfer (verify + submit), required amount, pay saved payee |
-| `public-pages.cy.js` | 2 | Site search, feedback form |
+| Spec                 | Tests | Scenarios                                                                                     |
+| -------------------- | :---: | --------------------------------------------------------------------------------------------- |
+| `login.cy.js`        |   4   | Valid login, invalid password, logout, anonymous redirect                                     |
+| `banking.cy.js`      |   5   | Account summary, tab navigation, transfer (verify + submit), required amount, pay saved payee |
+| `public-pages.cy.js` |   2   | Site search, feedback form                                                                    |
 
 ## 🗂️ Project structure
 

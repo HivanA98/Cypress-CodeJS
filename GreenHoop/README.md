@@ -20,10 +20,10 @@ Login page of the **[GreenHoop](https://uat.greenhoopapp.com)** recycling platfo
 
 ## 🧪 Test coverage
 
-| Suite | Tests | Scenarios |
-| --- | :-: | --- |
-| Login page | 3 | Form controls, typed values, show/hide password |
-| Login per role | 5 | One login per admin role *(needs credentials)* |
+| Suite          | Tests | Scenarios                                       |
+| -------------- | :---: | ----------------------------------------------- |
+| Login page     |   3   | Form controls, typed values, show/hide password |
+| Login per role |   5   | One login per admin role _(needs credentials)_  |
 
 ## 🔐 Test accounts
 

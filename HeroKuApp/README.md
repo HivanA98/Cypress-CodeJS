@@ -32,10 +32,10 @@ appointments.forEach((data, index) => {
 
 ## 🧪 Test coverage
 
-| Spec | Tests | Scenarios |
-| --- | :-: | --- |
-| `login.cy.js` | 7 | Demo credentials, login, logout, 4 data-driven rejected logins |
-| `appointment.cy.js` | 8 | Defaults, 3 facility bookings, required date, History page, 2 access-control checks |
+| Spec                | Tests | Scenarios                                                                           |
+| ------------------- | :---: | ----------------------------------------------------------------------------------- |
+| `login.cy.js`       |   7   | Demo credentials, login, logout, 4 data-driven rejected logins                      |
+| `appointment.cy.js` |   8   | Defaults, 3 facility bookings, required date, History page, 2 access-control checks |
 
 ## 🗂️ Project structure
 

@@ -16,13 +16,13 @@ Login and registration forms of the live beauty e-commerce site **[beautyhaul.co
 BeautyHaul is a **production site protected by reCAPTCHA** – real logins and registrations cannot be automated.
 This suite still tests the forms thoroughly by combining real UI checks with **network stubbing**:
 
-| Layer | Approach |
-| --- | --- |
-| Client-side validation | Tested for real – error messages, input sanitizing, navigation |
+| Layer                       | Approach                                                            |
+| --------------------------- | ------------------------------------------------------------------- |
+| Client-side validation      | Tested for real – error messages, input sanitizing, navigation      |
 | Backend (`/ajax/account/*`) | **Stubbed with `cy.intercept`** – no real account or captcha needed |
-| Request payload | Verified from the intercepted request |
-| Invalid forms | Asserted that **no request is sent** at all |
-| Third-party trackers | Blocked for faster, more stable runs |
+| Request payload             | Verified from the intercepted request                               |
+| Invalid forms               | Asserted that **no request is sent** at all                         |
+| Third-party trackers        | Blocked for faster, more stable runs                                |
 
 ```js
 it('shows an error toast when the credentials are wrong (401)', () => {
@@ -36,10 +36,10 @@ it('shows an error toast when the credentials are wrong (401)', () => {
 
 ## 🧪 Test coverage
 
-| Spec | Tests | Scenarios |
-| --- | :-: | --- |
-| `login.cy.js` | 6 | Required fields, email format, request payload, 401 toast, navigation links |
-| `register.cy.js` | 10 | Required fields, 6 data-driven invalid cases, valid data, name & phone sanitizing |
+| Spec             | Tests | Scenarios                                                                         |
+| ---------------- | :---: | --------------------------------------------------------------------------------- |
+| `login.cy.js`    |   6   | Required fields, email format, request payload, 401 toast, navigation links       |
+| `register.cy.js` |  10   | Required fields, 6 data-driven invalid cases, valid data, name & phone sanitizing |
 
 ## 🗂️ Project structure
 
