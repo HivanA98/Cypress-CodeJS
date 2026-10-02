@@ -1,25 +1,28 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import { loginPage, inventoryPage } from '../pages'
+
+/**
+ * Login melalui UI lalu simpan session-nya, sehingga test yang
+ * tidak menguji halaman login bisa langsung mulai dari halaman inventory.
+ *
+ * @example cy.loginAs('standard')
+ */
+Cypress.Commands.add('loginAs', (userKey = 'standard') => {
+  cy.fixture('users').then((users) => {
+    const { username, password } = users[userKey]
+
+    cy.session(
+      ['saucedemo', username],
+      () => {
+        loginPage.visit().login(username, password)
+        cy.url().should('include', '/inventory.html')
+      },
+      {
+        validate() {
+          cy.getCookie('session-username').should('exist')
+        },
+      },
+    )
+  })
+
+  inventoryPage.visit()
+})
