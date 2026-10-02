@@ -1,0 +1,6 @@
+export { default as loginPage } from './LoginPage'
+export { default as accountSummaryPage } from './AccountSummaryPage'
+export { default as transferFundsPage } from './TransferFundsPage'
+export { default as payBillsPage } from './PayBillsPage'
+export { default as feedbackPage } from './FeedbackPage'
+export { default as navbar } from './components/Navbar'
