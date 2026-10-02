@@ -25,6 +25,11 @@ Testing a live shop means some scenarios must **never** run by accident. Tags ma
 The default filter lives in `cypress.config.js` (`not @destructive and not @wip`).
 In CI the workflow runs `@guest` scenarios, and the full suite once the `VOILA_CYPRESS_ENV` secret is set.
 
+> [!NOTE]
+> voilà.id currently answers **HTTP 403** to GitHub-hosted runners (its firewall blocks datacenter IPs).
+> The workflow checks this first and **skips the suite with a warning** instead of failing. Run it locally,
+> or point the workflow at a self-hosted runner in Indonesia, to execute the scenarios in CI.
+
 ## ✨ Highlights
 
 - 🎯 Page Objects built on the site's stable **`data-test-id`** attributes

@@ -17,5 +17,6 @@ jobs:
       project: Voila-BDD
       command: npm test
       fallback-command: npm run test:guest
+      site-url: https://voila.id/
     secrets:
       cypress-env: ${{ secrets.VOILA_CYPRESS_ENV }}

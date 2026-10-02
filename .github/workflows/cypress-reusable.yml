@@ -18,6 +18,13 @@ on:
         required: false
         type: string
         default: ''
+      site-url:
+        description: >-
+          URL yang dicek dulu sebelum menjalankan Cypress. Jika website menolak runner GitHub
+          (mis. HTTP 403 dari WAF untuk IP datacenter), test dilewati dengan warning, bukan error.
+        required: false
+        type: string
+        default: ''
     secrets:
       cypress-env:
         description: Isi cypress.env.json (JSON) untuk project yang butuh akun test
@@ -40,14 +47,40 @@ jobs:
           cache: npm
           cache-dependency-path: ${{ inputs.project }}/package-lock.json
 
+      - name: Check website is reachable from the runner
+        id: site
+        if: inputs.site-url != ''
+        env:
+          SITE_URL: ${{ inputs.site-url }}
+          PROJECT: ${{ inputs.project }}
+        run: |
+          status=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 30 "$SITE_URL" || true)
+          echo "HTTP status for $SITE_URL: $status"
+          if [ "$status" = "000" ] || [ "$status" -ge 400 ]; then
+            echo "reachable=false" >> "$GITHUB_OUTPUT"
+            echo "::warning title=Tests skipped – website blocks GitHub runners::$SITE_URL returned HTTP $status to this GitHub-hosted runner. Run the suite locally or on a self-hosted runner."
+            {
+              echo "### ⚠️ $PROJECT: tests skipped"
+              echo ""
+              echo "\`$SITE_URL\` returned **HTTP $status** to this GitHub-hosted runner."
+              echo "The website blocks datacenter traffic, so the suite cannot run here."
+              echo "Run it locally or on a self-hosted runner instead."
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "reachable=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Install dependencies
+        if: steps.site.outputs.reachable != 'false'
         run: npm ci
 
       # npm 11 bisa melewati postinstall Cypress, jadi pastikan binary-nya terpasang.
       - name: Install Cypress binary
+        if: steps.site.outputs.reachable != 'false'
         run: npx cypress install && npx cypress verify
 
       - name: Create cypress.env.json from secret
+        if: steps.site.outputs.reachable != 'false'
         id: secrets
         env:
           CYPRESS_ENV_JSON: ${{ secrets.cypress-env }}
@@ -60,6 +93,7 @@ jobs:
           fi
 
       - name: Run Cypress
+        if: steps.site.outputs.reachable != 'false'
         uses: cypress-io/github-action@v7
         with:
           install: false
