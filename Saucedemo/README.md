@@ -15,19 +15,19 @@ Complete shopping journey on **[saucedemo.com](https://www.saucedemo.com)**: log
 
 - 🧱 **Page Object Model** with a `BasePage`, chainable actions and a reusable `HeaderComponent`
 - ⚡ **`cy.loginAs()`** custom command backed by `cy.session()` – tests skip the login UI after the first run
-- 🧮 **Business-rule assertions** – checkout verifies *item total = Σ prices* and *total = item total + tax*
+- 🧮 **Business-rule assertions** – checkout verifies _item total = Σ prices_ and _total = item total + tax_
 - 🐛 **Known-bug documentation** – tests describe the behaviour of `problem_user` and `performance_glitch_user`
 - 📊 HTML report via `cypress-mochawesome-reporter`
 
 ## 🧪 Test coverage
 
-| Spec | Tests | Scenarios |
-| --- | :-: | --- |
-| `login.cy.js` | 7 | Successful login, logout, locked user, wrong password, empty fields, anonymous access |
-| `inventory.cy.js` | 9 | Product count, 4 sort options, cart badge, reset app state, product detail |
-| `cart.cy.js` | 3 | Cart content, remove item, continue shopping |
-| `checkout.cy.js` | 4 | E2E checkout with total validation, required customer fields |
-| `user-types.cy.js` | 4 | `performance_glitch_user`, `problem_user` (2 bugs), `locked_out_user` |
+| Spec               | Tests | Scenarios                                                                             |
+| ------------------ | :---: | ------------------------------------------------------------------------------------- |
+| `login.cy.js`      |   7   | Successful login, logout, locked user, wrong password, empty fields, anonymous access |
+| `inventory.cy.js`  |   9   | Product count, 4 sort options, cart badge, reset app state, product detail            |
+| `cart.cy.js`       |   3   | Cart content, remove item, continue shopping                                          |
+| `checkout.cy.js`   |   4   | E2E checkout with total validation, required customer fields                          |
+| `user-types.cy.js` |   4   | `performance_glitch_user`, `problem_user` (2 bugs), `locked_out_user`                 |
 
 ## 🗂️ Project structure
 

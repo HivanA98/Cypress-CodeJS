@@ -30,11 +30,11 @@ Step definitions contain **no selectors** – every UI detail lives in the Page 
 
 ## 🧪 Features
 
-| Feature | Scenarios | Techniques |
-| --- | :-: | --- |
-| `login.feature` | 6 | Background, Scenario Outline, `@smoke` |
-| `inventory.feature` | 6 | Scenario Outline for 4 sort options |
-| `checkout.feature` | 5 | Data Table, Scenario Outline, end-to-end order |
+| Feature             | Scenarios | Techniques                                     |
+| ------------------- | :-------: | ---------------------------------------------- |
+| `login.feature`     |     6     | Background, Scenario Outline, `@smoke`         |
+| `inventory.feature` |     6     | Scenario Outline for 4 sort options            |
+| `checkout.feature`  |     5     | Data Table, Scenario Outline, end-to-end order |
 
 ```gherkin
 Scenario Outline: Login is rejected – <case>

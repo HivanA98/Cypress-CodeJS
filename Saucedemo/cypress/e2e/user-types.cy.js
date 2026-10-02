@@ -38,8 +38,6 @@ describe('Special user types', () => {
   })
 
   it('locked_out_user: cannot log in', () => {
-    loginPage
-      .login(users.locked.username, users.locked.password)
-      .shouldShowError(messages.login.lockedOut)
+    loginPage.login(users.locked.username, users.locked.password).shouldShowError(messages.login.lockedOut)
   })
 })

@@ -27,10 +27,10 @@ beforeEach(function () {
 
 ## 🧪 Test coverage
 
-| Suite | Tests | Scenarios |
-| --- | :-: | --- |
-| Login page | 5 | Form rendering, social sign-in, empty form, invalid email, Sign up navigation |
-| Login with a test account | 1 | Real login *(needs credentials)* |
+| Suite                     | Tests | Scenarios                                                                     |
+| ------------------------- | :---: | ----------------------------------------------------------------------------- |
+| Login page                |   5   | Form rendering, social sign-in, empty form, invalid email, Sign up navigation |
+| Login with a test account |   1   | Real login _(needs credentials)_                                              |
 
 ## 🔐 Test account
 

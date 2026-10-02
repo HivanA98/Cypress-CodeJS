@@ -11,7 +11,9 @@ export default class BasePage {
   removeAds() {
     cy.document().then((doc) => {
       doc
-        .querySelectorAll('#fixedban, footer, [id^="Ad.Plus"], #RightSide_Advertisement, iframe[id^="google_ads"]')
+        .querySelectorAll(
+          '#fixedban, footer, [id^="Ad.Plus"], #RightSide_Advertisement, iframe[id^="google_ads"]',
+        )
         .forEach((el) => el.remove())
     })
     return this

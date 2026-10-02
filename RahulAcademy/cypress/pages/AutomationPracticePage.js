@@ -20,7 +20,9 @@ class AutomationPracticePage {
   // Autocomplete
   selectCountry(keyword, country) {
     cy.get('#autocomplete').type(keyword)
-    cy.get('.ui-menu-item div').contains(new RegExp(`^${country}$`)).click()
+    cy.get('.ui-menu-item div')
+      .contains(new RegExp(`^${country}$`))
+      .click()
     return this
   }
 

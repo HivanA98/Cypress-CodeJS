@@ -42,7 +42,10 @@ describe('Online Banking', () => {
     })
 
     it('requires an amount', () => {
-      transferFundsPage.visit().fillForm({ ...transfer, amount: undefined }).submit()
+      transferFundsPage
+        .visit()
+        .fillForm({ ...transfer, amount: undefined })
+        .submit()
 
       transferFundsPage.amountInput.then(($input) => {
         expect($input[0].validity.valueMissing).to.equal(true)

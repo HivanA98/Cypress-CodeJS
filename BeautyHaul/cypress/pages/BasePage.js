@@ -19,12 +19,7 @@ export default class BasePage {
   fieldError(name) {
     return this.field(name).then(($input) => {
       const $parent = $input.parent()
-      const candidates = [
-        $input.next('p'),
-        $parent.next('p'),
-        $parent.find('p'),
-        $parent.parent().find('p'),
-      ]
+      const candidates = [$input.next('p'), $parent.next('p'), $parent.find('p'), $parent.parent().find('p')]
       return candidates.find(($el) => $el.length).first()
     })
   }

@@ -85,12 +85,15 @@ class CheckoutPage extends BasePage {
 
       this.subtotalLabel.invoke('text').then(parseAmount).should('be.closeTo', expectedSubtotal, 0.01)
 
-      this.taxLabel.invoke('text').then(parseAmount).then((tax) => {
-        this.totalLabel
-          .invoke('text')
-          .then(parseAmount)
-          .should('be.closeTo', expectedSubtotal + tax, 0.01)
-      })
+      this.taxLabel
+        .invoke('text')
+        .then(parseAmount)
+        .then((tax) => {
+          this.totalLabel
+            .invoke('text')
+            .then(parseAmount)
+            .should('be.closeTo', expectedSubtotal + tax, 0.01)
+        })
     })
     return this
   }

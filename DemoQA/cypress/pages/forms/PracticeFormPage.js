@@ -1,8 +1,18 @@
 import BasePage from '../BasePage'
 
 const MONTHS = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December',
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
 ]
 
 class PracticeFormPage extends BasePage {
@@ -82,8 +92,20 @@ class PracticeFormPage extends BasePage {
 
   /** Isi seluruh form. Field opsional yang tidak diberikan akan dilewati. */
   fillForm(student) {
-    const { firstName, lastName, email, gender, mobile, dateOfBirth, subjects, hobbies, picture, address, state, city } =
-      student
+    const {
+      firstName,
+      lastName,
+      email,
+      gender,
+      mobile,
+      dateOfBirth,
+      subjects,
+      hobbies,
+      picture,
+      address,
+      state,
+      city,
+    } = student
 
     if (firstName) this.firstNameInput.type(firstName)
     if (lastName) this.lastNameInput.type(lastName)

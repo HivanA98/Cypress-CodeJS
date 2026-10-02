@@ -42,7 +42,10 @@ class CheckoutPage extends BasePage {
 
   /** Simpan total belanja dari ringkasan checkout sebagai alias `@orderTotal`. */
   saveOrderTotal() {
-    cy.get(SELECTORS.summaryTotal).invoke('text').then((text) => text.trim()).as('orderTotal')
+    cy.get(SELECTORS.summaryTotal)
+      .invoke('text')
+      .then((text) => text.trim())
+      .as('orderTotal')
     return this
   }
 

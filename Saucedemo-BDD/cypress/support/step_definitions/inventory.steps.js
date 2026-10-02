@@ -17,20 +17,16 @@ Then('I should see {int} products', (count) => {
   inventoryPage.items.should('have.length', count)
 })
 
-Then(
-  'the products should be sorted by {word} in {word} order',
-  (field, direction) => {
-    const getValues =
-      field === 'price' ? inventoryPage.getProductPrices() : inventoryPage.getProductNames()
+Then('the products should be sorted by {word} in {word} order', (field, direction) => {
+  const getValues = field === 'price' ? inventoryPage.getProductPrices() : inventoryPage.getProductNames()
 
-    getValues.then((values) => {
-      const sorted = field === 'price' ? [...values].sort((a, b) => a - b) : [...values].sort()
-      if (direction === 'descending') sorted.reverse()
+  getValues.then((values) => {
+    const sorted = field === 'price' ? [...values].sort((a, b) => a - b) : [...values].sort()
+    if (direction === 'descending') sorted.reverse()
 
-      expect(values).to.deep.equal(sorted)
-    })
-  },
-)
+    expect(values).to.deep.equal(sorted)
+  })
+})
 
 Then('the cart badge should show {int}', (count) => {
   header.shouldHaveCartCount(count)

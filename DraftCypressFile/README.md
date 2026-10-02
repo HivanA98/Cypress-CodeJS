@@ -13,12 +13,12 @@ The example tests target the TodoMVC app at [example.cypress.io/todo](https://ex
 
 ## 📐 Conventions
 
-| Folder | Purpose |
-| --- | --- |
-| `cypress/e2e` | Specs – scenarios and assertions only, **no raw selectors** |
-| `cypress/pages` | Page Objects – one class per page, exported as a singleton, chainable methods |
-| `cypress/fixtures` | Test data in JSON |
-| `cypress/support` | Custom commands (`cy.getByCy` example) and global setup |
+| Folder             | Purpose                                                                       |
+| ------------------ | ----------------------------------------------------------------------------- |
+| `cypress/e2e`      | Specs – scenarios and assertions only, **no raw selectors**                   |
+| `cypress/pages`    | Page Objects – one class per page, exported as a singleton, chainable methods |
+| `cypress/fixtures` | Test data in JSON                                                             |
+| `cypress/support`  | Custom commands (`cy.getByCy` example) and global setup                       |
 
 ```js
 todoPage.toggle('Pay electric bill').clearCompleted()

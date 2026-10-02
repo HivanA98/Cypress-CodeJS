@@ -15,12 +15,12 @@ BDD suite for the Indonesian luxury fashion e-commerce **[voilà.id](https://voi
 
 Testing a live shop means some scenarios must **never** run by accident. Tags make the intent explicit:
 
-| Tag | Meaning | Runs by default |
-| --- | --- | :-: |
-| `@guest` | No account needed – browsing, search, product pages | ✅ |
-| `@auth` | Needs a test account (`cypress.env.json` / CI secret) | ✅ when credentials exist |
-| `@destructive` | Places a **real order** – opt-in only | ❌ |
-| `@wip` | Selectors still being verified | ❌ |
+| Tag            | Meaning                                               |      Runs by default      |
+| -------------- | ----------------------------------------------------- | :-----------------------: |
+| `@guest`       | No account needed – browsing, search, product pages   |            ✅             |
+| `@auth`        | Needs a test account (`cypress.env.json` / CI secret) | ✅ when credentials exist |
+| `@destructive` | Places a **real order** – opt-in only                 |            ❌             |
+| `@wip`         | Selectors still being verified                        |            ❌             |
 
 The default filter lives in `cypress.config.js` (`not @destructive and not @wip`).
 In CI the workflow runs `@guest` scenarios, and the full suite once the `VOILA_CYPRESS_ENV` secret is set.
@@ -34,14 +34,14 @@ In CI the workflow runs `@guest` scenarios, and the full suite once the `VOILA_C
 
 ## 🧪 Features
 
-| Feature | Tag | Scenarios |
-| --- | --- | --- |
-| `guest/browse.feature` | `@guest` | Header categories (Data Table), sign in page & SSO options |
-| `guest/search.feature` | `@guest` | Search by brand (Scenario Outline), product detail, guest add-to-bag redirect |
-| `account/login.feature` | `@auth` | Valid login, wrong password – two-step login form |
-| `account/profile.feature` | `@auth @wip` | Change first name |
-| `checkout/checkout.feature` | `@auth` | Bag → checkout, replace a product |
-| | `@auth @destructive` | Place an order and compare totals |
+| Feature                     | Tag                  | Scenarios                                                                     |
+| --------------------------- | -------------------- | ----------------------------------------------------------------------------- |
+| `guest/browse.feature`      | `@guest`             | Header categories (Data Table), sign in page & SSO options                    |
+| `guest/search.feature`      | `@guest`             | Search by brand (Scenario Outline), product detail, guest add-to-bag redirect |
+| `account/login.feature`     | `@auth`              | Valid login, wrong password – two-step login form                             |
+| `account/profile.feature`   | `@auth @wip`         | Change first name                                                             |
+| `checkout/checkout.feature` | `@auth`              | Bag → checkout, replace a product                                             |
+|                             | `@auth @destructive` | Place an order and compare totals                                             |
 
 ## 🔐 Test account
 

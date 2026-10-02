@@ -11,7 +11,7 @@
 ![Java](https://img.shields.io/badge/Java-17-ED8B00?logo=openjdk&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)
 
-*13 projects · 180+ automated tests · 12 real-world applications · every project runs in CI*
+_13 projects · 180+ automated tests · 12 real-world applications · every project runs in CI_
 
 </div>
 
@@ -19,34 +19,34 @@
 
 ## ✨ What this repository shows
 
-| | Skill | Where to look |
-| :-: | --- | --- |
-| 🧱 | **Page Object Model** with chainable actions and reusable components | every Cypress project – `cypress/pages` |
-| 🥒 | **BDD with Gherkin** – Scenario Outlines, Data Tables, tag strategy | [Saucedemo-BDD](Saucedemo-BDD), [BeautyHaul-BDD](BeautyHaul-BDD), [Voila-BDD](Voila-BDD) |
-| 🌐 | **Network stubbing** with `cy.intercept` to test UI without hitting a protected backend | [BeautyHaul](BeautyHaul) |
-| ⚡ | **Fast, stable logins** with `cy.session()` and API login via `cy.request` | [Websecurity](Websecurity), [Saucedemo](Saucedemo) |
-| 🎲 | **Data-driven & generated test data** – fixtures and Faker | [DemoQA](DemoQA), [HeroKuApp](HeroKuApp) |
-| 🔐 | **Secrets management** – credentials in git-ignored env files / CI secrets, never in code | [Voila-BDD](Voila-BDD), [PayEver](PayEver), [GreenHoop](GreenHoop) |
-| 🔌 | **API testing** – CRUD, JSON schemas, chained requests, parallel execution | [API_Karate_Framework](API_Karate_Framework) |
-| 🤖 | **CI/CD** – one reusable GitHub Actions workflow, one status badge per project | [`.github/workflows`](.github/workflows) |
+|     | Skill                                                                                     | Where to look                                                                            |
+| :-: | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| 🧱  | **Page Object Model** with chainable actions and reusable components                      | every Cypress project – `cypress/pages`                                                  |
+| 🥒  | **BDD with Gherkin** – Scenario Outlines, Data Tables, tag strategy                       | [Saucedemo-BDD](Saucedemo-BDD), [BeautyHaul-BDD](BeautyHaul-BDD), [Voila-BDD](Voila-BDD) |
+| 🌐  | **Network stubbing** with `cy.intercept` to test UI without hitting a protected backend   | [BeautyHaul](BeautyHaul)                                                                 |
+| ⚡  | **Fast, stable logins** with `cy.session()` and API login via `cy.request`                | [Websecurity](Websecurity), [Saucedemo](Saucedemo)                                       |
+| 🎲  | **Data-driven & generated test data** – fixtures and Faker                                | [DemoQA](DemoQA), [HeroKuApp](HeroKuApp)                                                 |
+| 🔐  | **Secrets management** – credentials in git-ignored env files / CI secrets, never in code | [Voila-BDD](Voila-BDD), [PayEver](PayEver), [GreenHoop](GreenHoop)                       |
+| 🔌  | **API testing** – CRUD, JSON schemas, chained requests, parallel execution                | [API_Karate_Framework](API_Karate_Framework)                                             |
+| 🤖  | **CI/CD** – one reusable GitHub Actions workflow, one status badge per project            | [`.github/workflows`](.github/workflows)                                                 |
 
 ## 📦 Projects
 
-| Project | Status | Stack | Application | Tests |
-| --- | --- | --- | --- | :-: |
-| [**Saucedemo**](Saucedemo) | [![Saucedemo](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/saucedemo.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/saucedemo.yml) | Cypress | saucedemo.com | 27 |
-| [**Saucedemo-BDD**](Saucedemo-BDD) | [![Saucedemo BDD](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/saucedemo-bdd.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/saucedemo-bdd.yml) | Cypress · Cucumber | saucedemo.com | 17 |
-| [**BeautyHaul**](BeautyHaul) | [![BeautyHaul](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/beautyhaul.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/beautyhaul.yml) | Cypress | beautyhaul.com | 16 |
-| [**BeautyHaul-BDD**](BeautyHaul-BDD) | [![BeautyHaul BDD](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/beautyhaul-bdd.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/beautyhaul-bdd.yml) | Cypress · Cucumber | beautyhaul.com | 13 |
-| [**DemoQA**](DemoQA) | [![DemoQA](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/demoqa.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/demoqa.yml) | Cypress · Faker | demoqa.com | 28 |
-| [**HeroKuApp**](HeroKuApp) | [![CURA Healthcare](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/herokuapp.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/herokuapp.yml) | Cypress | CURA Healthcare | 15 |
-| [**RahulAcademy**](RahulAcademy) | [![Rahul Shetty Academy](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/rahulacademy.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/rahulacademy.yml) | Cypress | rahulshettyacademy.com | 20 |
-| [**Websecurity**](Websecurity) | [![Zero Bank](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/websecurity.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/websecurity.yml) | Cypress | Zero Bank | 11 |
-| [**Voila-BDD**](Voila-BDD) | [![voila.id BDD](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/voila-bdd.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/voila-bdd.yml) | Cypress · Cucumber | voila.id | 6 + auth |
-| [**PayEver**](PayEver) | [![PayEver](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/payever.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/payever.yml) | Cypress | PayEver commerceOS | 5 + auth |
-| [**GreenHoop**](GreenHoop) | [![GreenHoop](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/greenhoop.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/greenhoop.yml) | Cypress | GreenHoop UAT | 3 + auth |
-| [**DraftCypressFile**](DraftCypressFile) | [![Starter Template](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/template.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/template.yml) | Cypress template | example.cypress.io | 5 |
-| [**API_Karate_Framework**](API_Karate_Framework) | [![Karate API](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/karate.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/karate.yml) | Karate · JUnit 5 | JSONPlaceholder | 16 |
+| Project                                          | Status                                                                                                                                                                                            | Stack              | Application            |  Tests   |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ---------------------- | :------: |
+| [**Saucedemo**](Saucedemo)                       | [![Saucedemo](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/saucedemo.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/saucedemo.yml)                  | Cypress            | saucedemo.com          |    27    |
+| [**Saucedemo-BDD**](Saucedemo-BDD)               | [![Saucedemo BDD](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/saucedemo-bdd.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/saucedemo-bdd.yml)      | Cypress · Cucumber | saucedemo.com          |    17    |
+| [**BeautyHaul**](BeautyHaul)                     | [![BeautyHaul](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/beautyhaul.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/beautyhaul.yml)               | Cypress            | beautyhaul.com         |    16    |
+| [**BeautyHaul-BDD**](BeautyHaul-BDD)             | [![BeautyHaul BDD](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/beautyhaul-bdd.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/beautyhaul-bdd.yml)   | Cypress · Cucumber | beautyhaul.com         |    13    |
+| [**DemoQA**](DemoQA)                             | [![DemoQA](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/demoqa.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/demoqa.yml)                           | Cypress · Faker    | demoqa.com             |    28    |
+| [**HeroKuApp**](HeroKuApp)                       | [![CURA Healthcare](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/herokuapp.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/herokuapp.yml)            | Cypress            | CURA Healthcare        |    15    |
+| [**RahulAcademy**](RahulAcademy)                 | [![Rahul Shetty Academy](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/rahulacademy.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/rahulacademy.yml) | Cypress            | rahulshettyacademy.com |    20    |
+| [**Websecurity**](Websecurity)                   | [![Zero Bank](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/websecurity.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/websecurity.yml)              | Cypress            | Zero Bank              |    11    |
+| [**Voila-BDD**](Voila-BDD)                       | [![voila.id BDD](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/voila-bdd.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/voila-bdd.yml)               | Cypress · Cucumber | voila.id               | 6 + auth |
+| [**PayEver**](PayEver)                           | [![PayEver](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/payever.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/payever.yml)                        | Cypress            | PayEver commerceOS     | 5 + auth |
+| [**GreenHoop**](GreenHoop)                       | [![GreenHoop](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/greenhoop.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/greenhoop.yml)                  | Cypress            | GreenHoop UAT          | 3 + auth |
+| [**DraftCypressFile**](DraftCypressFile)         | [![Starter Template](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/template.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/template.yml)             | Cypress template   | example.cypress.io     |    5     |
+| [**API_Karate_Framework**](API_Karate_Framework) | [![Karate API](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/karate.yml/badge.svg)](https://github.com/HivanA98/Cypress-CodeJS/actions/workflows/karate.yml)                       | Karate · JUnit 5   | JSONPlaceholder        |    16    |
 
 > **+ auth** – extra scenarios that run only when a test account is provided (see [Secrets](#-secrets)).
 
@@ -103,10 +103,10 @@ npm test                        # headless run + HTML report in cypress/reports
 Projects that need a real account read credentials from a git-ignored `cypress.env.json`
 (copy `cypress.env.example.json`). In CI the same JSON is provided as a repository secret:
 
-| Project | Repository secret |
-| --- | --- |
-| Voila-BDD | `VOILA_CYPRESS_ENV` |
-| PayEver | `PAYEVER_CYPRESS_ENV` |
+| Project   | Repository secret       |
+| --------- | ----------------------- |
+| Voila-BDD | `VOILA_CYPRESS_ENV`     |
+| PayEver   | `PAYEVER_CYPRESS_ENV`   |
 | GreenHoop | `GREENHOOP_CYPRESS_ENV` |
 
 Without the secret the workflow still runs and simply skips the account-only scenarios.
