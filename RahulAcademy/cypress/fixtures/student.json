@@ -1,0 +1,9 @@
+{
+  "name": "Ivan Armadi",
+  "email": "ivan.qa.test@example.com",
+  "password": "Secret123!",
+  "likesIceCream": true,
+  "gender": "Male",
+  "employment": "Employed",
+  "birthday": "1998-10-22"
+}
