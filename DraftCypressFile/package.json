@@ -1,13 +1,22 @@
 {
+  "name": "cypress-starter-template",
+  "version": "2.0.0",
+  "description": "Starter template Cypress + Page Object Model",
+  "private": true,
+  "author": "Ivan Armadi",
+  "license": "MIT",
+  "scripts": {
+    "cy:open": "cypress open --e2e",
+    "test": "cypress run",
+    "test:chrome": "cypress run --browser chrome",
+    "test:firefox": "cypress run --browser firefox",
+    "test:edge": "cypress run --browser edge"
+  },
   "devDependencies": {
-    "cypress": "^14.2.1",
-    "cypress-cucumber-preprocessor": "^4.3.1",
-    "cypress-multi-reporters": "^2.0.5",
-    "cypress-pipe": "^2.0.1",
-    "cypress-wait-until": "^3.0.2",
-    "cypress-xpath": "^2.0.1",
-    "mochawesome": "^7.1.4",
-    "mochawesome-merge": "^5.0.0",
-    "mochawesome-report-generator": "^6.3.2"
+    "cypress": "^16.1.1",
+    "cypress-mochawesome-reporter": "^5.0.0"
+  },
+  "allowScripts": {
+    "cypress@16.1.1": true
   }
 }
