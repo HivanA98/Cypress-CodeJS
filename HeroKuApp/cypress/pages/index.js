@@ -1,0 +1,6 @@
+export { default as homePage } from './HomePage'
+export { default as loginPage } from './LoginPage'
+export { default as appointmentPage } from './AppointmentPage'
+export { default as confirmationPage } from './ConfirmationPage'
+export { default as historyPage } from './HistoryPage'
+export { default as sideMenu } from './components/SideMenu'

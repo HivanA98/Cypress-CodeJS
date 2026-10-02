@@ -1,0 +1,20 @@
+[
+  {
+    "facility": "Tokyo CURA Healthcare Center",
+    "readmission": true,
+    "program": "Medicare",
+    "comment": "Routine check-up"
+  },
+  {
+    "facility": "Hongkong CURA Healthcare Center",
+    "readmission": false,
+    "program": "Medicaid",
+    "comment": "Follow-up consultation"
+  },
+  {
+    "facility": "Seoul CURA Healthcare Center",
+    "readmission": true,
+    "program": "None",
+    "comment": ""
+  }
+]
