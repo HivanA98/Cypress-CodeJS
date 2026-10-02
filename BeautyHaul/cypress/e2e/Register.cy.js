@@ -1,84 +1,48 @@
-/// <reference types="cypress" />
-import Registersteps from '../stepsDefinition/Registerstep'
+import { registerPage } from '../pages'
+import { validUser, requiredMessages, invalidCases } from '../fixtures/register.json'
 
 describe('Register', () => {
+  beforeEach(() => {
+    registerPage.visit()
+    registerPage.stubRegisterApi()
+  })
 
-beforeEach(() => {
-    Registersteps.RegisterPage()
+  it('shows every required-field error on an empty submit', () => {
+    registerPage.submit()
+
+    Object.entries(requiredMessages).forEach(([field, message]) => {
+      registerPage.shouldShowFieldError(field, message)
     })
-    
-it('NormalRegister', () => {
-    Registersteps.NormalInputFirstName()
-    Registersteps.ValidationFirstNamePositive
-    Registersteps.NormalInputLastName()
-    Registersteps.WordValidationLastnamePositive()
-    Registersteps.NormalInputEmail()
-    Registersteps.NormalInputPassword()
-    Registersteps.NormalValidationPassword()
-    Registersteps.NormalInputConfirmPassword()
-    Registersteps.NormalValidationConfirmPassword()
-    Registersteps.SelectGender()
-    Registersteps.SelectDate()
-    Registersteps.SelectMonth()
-    Registersteps.SelectYear()
+    registerPage.shouldShowToast('Ups, masih ada form yang wajib diisi')
+    cy.get('@registerRequest.all').should('have.length', 0)
+  })
+
+  context('Field validation', () => {
+    invalidCases.forEach(({ title, data, field, message }) => {
+      it(`rejects ${title}`, () => {
+        registerPage.fillForm(data).submit()
+        registerPage.shouldShowFieldError(field, message)
+        cy.get('@registerRequest.all').should('have.length', 0)
+      })
     })
-    
-it('FirstNameNegative', () => {
-    Registersteps.UnNormalInputFirstName()
-    Registersteps.ValidationFirstNameNegative()
-    Registersteps.NormalInputLastName()
-    Registersteps.WordValidationLastnamePositive()
-    Registersteps.NormalInputEmail()
-    Registersteps.NormalInputPassword()
-    Registersteps.NormalInputConfirmPassword()
-    Registersteps.SelectGender()
-    Registersteps.SelectDate()
-    Registersteps.SelectMonth()
-    Registersteps.SelectYear()
+
+    it('accepts valid personal data without field errors', () => {
+      registerPage.fillForm(validUser).submit()
+
+      Object.keys(requiredMessages).forEach((field) => {
+        registerPage.shouldNotShowFieldError(field)
+      })
     })
-it('LastNameNegative', () => {
-    Registersteps.NormalInputFirstName()
-    Registersteps.ValidationFirstNamePositive
-    Registersteps.UnNormalInputLastName()
-    Registersteps.WordValidationLastnameNegative()
-    Registersteps.NormalInputEmail()
-    Registersteps.NormalInputPassword()
-    Registersteps.NormalValidationPassword()
-    Registersteps.NormalInputConfirmPassword()
-    Registersteps.NormalValidationConfirmPassword()
-    Registersteps.SelectGender()
-    Registersteps.SelectDate()
-    Registersteps.SelectMonth()
-    Registersteps.SelectYear()
+  })
+
+  context('Input sanitizing', () => {
+    it('strips digits and symbols from the name fields', () => {
+      registerPage.firstNameInput.type('Ivan123!@#').should('have.value', 'Ivan')
+      registerPage.lastNameInput.type('Armadi_99').should('have.value', 'Armadi')
     })
-it('PasswordNegativeAndNotSame', () => {
-    Registersteps.NormalInputFirstName()
-    Registersteps.ValidationFirstNamePositive
-    Registersteps.NormalInputLastName()
-    Registersteps.WordValidationLastnamePositive()
-    Registersteps.NormalInputEmail()
-    Registersteps.UnNormalInputPassword()
-    Registersteps.UnNormalValidationPassword()
-    Registersteps.NormalInputConfirmPassword()
-    Registersteps.NormalValidationConfirmPassword()
-    Registersteps.SelectGender()
-    Registersteps.SelectDate()
-    Registersteps.SelectMonth()
-    Registersteps.SelectYear()
+
+    it('only accepts digits in the phone field and blocks a leading zero', () => {
+      registerPage.phoneInput.type('0812-abc-345').should('have.value', '812345')
     })
-it('ConfirmPasswordNegative', () => {
-    Registersteps.NormalInputFirstName()
-    Registersteps.ValidationFirstNamePositive
-    Registersteps.NormalInputLastName()
-    Registersteps.WordValidationLastnamePositive()
-    Registersteps.NormalInputEmail()
-    Registersteps.UnNormalInputPassword()
-    Registersteps.UnNormalValidationPassword()
-    Registersteps.UnNormalInputConfirmPassword()
-    Registersteps.UnNormalValidationConfirmPassword()
-    Registersteps.SelectGender()
-    Registersteps.SelectDate()
-    Registersteps.SelectMonth()
-    Registersteps.SelectYear()
-    })
+  })
 })
