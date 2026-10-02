@@ -1,0 +1,79 @@
+name: Cypress (reusable)
+
+# Workflow ini dipanggil oleh workflow per project (lihat file *.yml lain di folder ini).
+on:
+  workflow_call:
+    inputs:
+      project:
+        description: Folder project yang dijalankan
+        required: true
+        type: string
+      command:
+        description: Perintah test (kosong = npx cypress run)
+        required: false
+        type: string
+        default: ''
+      fallback-command:
+        description: Perintah test jika secret cypress-env tidak tersedia
+        required: false
+        type: string
+        default: ''
+    secrets:
+      cypress-env:
+        description: Isi cypress.env.json (JSON) untuk project yang butuh akun test
+        required: false
+
+jobs:
+  e2e:
+    name: ${{ inputs.project }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: ${{ inputs.project }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: ${{ inputs.project }}/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      # npm 11 bisa melewati postinstall Cypress, jadi pastikan binary-nya terpasang.
+      - name: Install Cypress binary
+        run: npx cypress install && npx cypress verify
+
+      - name: Create cypress.env.json from secret
+        id: secrets
+        env:
+          CYPRESS_ENV_JSON: ${{ secrets.cypress-env }}
+        run: |
+          if [ -n "$CYPRESS_ENV_JSON" ]; then
+            echo "$CYPRESS_ENV_JSON" > cypress.env.json
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run Cypress
+        uses: cypress-io/github-action@v7
+        with:
+          install: false
+          working-directory: ${{ inputs.project }}
+          # Tanpa secret → pakai fallback-command (jika ada), selain itu pakai command.
+          command: ${{ (steps.secrets.outputs.available != 'true' && inputs.fallback-command != '') && inputs.fallback-command || inputs.command }}
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: report-${{ inputs.project }}
+          path: |
+            ${{ inputs.project }}/cypress/reports
+            ${{ inputs.project }}/cypress/screenshots
+          if-no-files-found: ignore
+          retention-days: 14

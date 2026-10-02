@@ -1,0 +1,21 @@
+name: voila.id BDD
+
+on:
+  push:
+    branches: [master]
+    paths: ['Voila-BDD/**', '.github/workflows/voila-bdd.yml', '.github/workflows/cypress-reusable.yml']
+  pull_request:
+    paths: ['Voila-BDD/**', '.github/workflows/voila-bdd.yml', '.github/workflows/cypress-reusable.yml']
+  schedule:
+    - cron: '0 1 * * 1' # every Monday 08:00 WIB – catches changes on the target website
+  workflow_dispatch:
+
+jobs:
+  test:
+    uses: ./.github/workflows/cypress-reusable.yml
+    with:
+      project: Voila-BDD
+      command: npm test
+      fallback-command: npm run test:guest
+    secrets:
+      cypress-env: ${{ secrets.VOILA_CYPRESS_ENV }}

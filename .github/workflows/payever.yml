@@ -1,0 +1,19 @@
+name: PayEver
+
+on:
+  push:
+    branches: [master]
+    paths: ['PayEver/**', '.github/workflows/payever.yml', '.github/workflows/cypress-reusable.yml']
+  pull_request:
+    paths: ['PayEver/**', '.github/workflows/payever.yml', '.github/workflows/cypress-reusable.yml']
+  schedule:
+    - cron: '0 1 * * 1' # every Monday 08:00 WIB – catches changes on the target website
+  workflow_dispatch:
+
+jobs:
+  test:
+    uses: ./.github/workflows/cypress-reusable.yml
+    with:
+      project: PayEver
+    secrets:
+      cypress-env: ${{ secrets.PAYEVER_CYPRESS_ENV }}
