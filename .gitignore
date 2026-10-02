@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Cypress artifacts
+**/cypress/videos/
+**/cypress/screenshots/
+**/cypress/downloads/
+**/cypress/reports/
+
+# Secrets (gunakan cypress.env.example.json sebagai template)
+cypress.env.json
+
+# Karate / Maven
+target/
+
+# Logs & OS files
+*.log
+yarn-error.log
+.DS_Store
+Thumbs.db
