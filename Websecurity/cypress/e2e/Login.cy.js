@@ -1,21 +1,34 @@
-describe('working with inputs', () => {
-    
-    before('visit the website', () => {
-        cy.visit('http://zero.webappsecurity.com/login.html')
-        cy.url().should('include','login.html')
-    });
+import { loginPage, accountSummaryPage, navbar } from '../pages'
+import users from '../fixtures/users.json'
 
-    it('should fill username', () => {
-        cy.get('#user_login').clear()
-        cy.get('#user_login').type('username')
-    });
+describe('Login', () => {
+  beforeEach(() => {
+    loginPage.visit()
+  })
 
-    it('should fill password', () => {
-        cy.get('#user_password').clear()
-        cy.get('#user_password').type('password')
-    });
-    
-    it('should fill the check box', () => {
-        cy.get('#user_remember_me').click({ force: true })
-    });
-});
+  it('logs in with valid credentials', () => {
+    loginPage.login(users.valid.username, users.valid.password, { rememberMe: true })
+
+    // Setelah login, aplikasi mengarah ke halaman sertifikat; buka summary secara langsung.
+    accountSummaryPage.visit().shouldBeDisplayed()
+  })
+
+  it('rejects an invalid password', () => {
+    loginPage.login(users.invalid.username, users.invalid.password).shouldShowError()
+    cy.location('search').should('include', 'login_error=true')
+  })
+
+  it('logs out and returns to the homepage', () => {
+    loginPage.login(users.valid.username, users.valid.password)
+    accountSummaryPage.visit()
+
+    navbar.logout()
+    cy.location('pathname').should('eq', '/index.html')
+    cy.get('#signin_button').should('be.visible')
+  })
+
+  it('redirects anonymous users from the bank pages to login', () => {
+    cy.visit('/bank/account-summary.html')
+    cy.location('pathname').should('eq', '/login.html')
+  })
+})

@@ -1,28 +1,22 @@
 {
-  "name": "Ivan",
-  "version": "1.00",
-  "main": "index.js",
-  "author": "ivan",
+  "name": "saucedemo-cypress",
+  "version": "2.0.0",
+  "description": "E2E test suite untuk saucedemo.com menggunakan Cypress + Page Object Model",
+  "private": true,
+  "author": "Ivan Armadi",
   "license": "MIT",
   "scripts": {
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "cy:run:chrome": "cypress run --browser chrome",
-    "cy:run:firefox": "cypress run --browser firefox",
-    "cy:run:edge": "cypress run --browser edge",
-    "cy:report": "mochawesome-merge ./cypress/reports/*.json | mochawesome-report-generator -o ./cypress/reports/html",
-    "cy:run:junit": "cypress run --reporter junit --reporter-options mochaFile=cypress/reports/junit/test-results-[hash].xml"
+    "cy:open": "cypress open --e2e",
+    "test": "cypress run",
+    "test:chrome": "cypress run --browser chrome",
+    "test:firefox": "cypress run --browser firefox",
+    "test:edge": "cypress run --browser edge"
   },
   "devDependencies": {
-    "cypress": "^15.6.0",
-    "cypress-cucumber-preprocessor": "^4.3.1",
-    "cypress-multi-reporters": "^1.6.4",
-    "cypress-pipe": "^2.0.1",
-    "cypress-wait-until": "^3.0.2",
-    "cypress-xpath": "^2.0.1",
-    "mochawesome": "^7.1.4",
-    "mochawesome-merge": "^4.4.1",
-    "mochawesome-report-generator": "^6.3.2",
-    "prettier": "latest"
+    "cypress": "^16.1.1",
+    "cypress-mochawesome-reporter": "^5.0.0"
+  },
+  "allowScripts": {
+    "cypress@16.1.1": true
   }
 }

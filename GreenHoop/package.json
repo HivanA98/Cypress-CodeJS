@@ -1,0 +1,22 @@
+{
+  "name": "greenhoop-cypress",
+  "version": "2.0.0",
+  "description": "E2E test suite untuk halaman login GreenHoop (UAT) menggunakan Cypress + Page Object Model",
+  "private": true,
+  "author": "Ivan Armadi",
+  "license": "MIT",
+  "scripts": {
+    "cy:open": "cypress open --e2e",
+    "test": "cypress run",
+    "test:chrome": "cypress run --browser chrome",
+    "test:firefox": "cypress run --browser firefox",
+    "test:edge": "cypress run --browser edge"
+  },
+  "devDependencies": {
+    "cypress": "^16.1.1",
+    "cypress-mochawesome-reporter": "^5.0.0"
+  },
+  "allowScripts": {
+    "cypress@16.1.1": true
+  }
+}

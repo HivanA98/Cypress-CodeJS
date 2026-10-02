@@ -1,22 +1,16 @@
-// ***********************************************************
-// This example support/e2e.js is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
+import 'cypress-mochawesome-reporter/register'
 
-// Import commands.js using ES2015 syntax:
-import './commands'
-before(() => {
-    cy.intercept({ resourceType: /xhr|fetch/ }, { log: false });
-});
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+// DemoQA memuat banyak script iklan yang sering melempar error dan menutupi elemen.
+Cypress.on('uncaught:exception', () => false)
+
+beforeEach(() => {
+  const adHosts = [
+    '**/pagead2.googlesyndication.com/**',
+    '**/*.doubleclick.net/**',
+    '**/*.adplus.*/**',
+    '**/securepubads.g.doubleclick.net/**',
+    '**/googletagmanager.com/**',
+    '**/google-analytics.com/**',
+  ]
+  adHosts.forEach((url) => cy.intercept(url, { statusCode: 204, log: false }))
+})

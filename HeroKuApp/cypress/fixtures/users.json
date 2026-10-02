@@ -1,0 +1,5 @@
+{
+  "valid": { "username": "John Doe", "password": "ThisIsNotAPassword" },
+  "wrongPassword": { "username": "John Doe", "password": "WrongPassword" },
+  "unknownUser": { "username": "Jane Doe", "password": "ThisIsNotAPassword" }
+}

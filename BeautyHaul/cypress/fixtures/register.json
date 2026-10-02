@@ -1,0 +1,56 @@
+{
+  "validUser": {
+    "firstName": "Ivan",
+    "lastName": "Armadi",
+    "email": "ivan.qa.test@example.com",
+    "phone": "81812345678",
+    "password": "Password123",
+    "confirmPassword": "Password123"
+  },
+  "requiredMessages": {
+    "nama_depan": "Nama depan harus diisi",
+    "nama_belakang": "Nama belakang harus diisi",
+    "email": "Email harus diisi",
+    "nomor_ponsel": "Nomor ponsel harus diisi",
+    "password": "Password harus diisi",
+    "konfirmasi_password": "Konfirmasi password harus diisi"
+  },
+  "invalidCases": [
+    {
+      "title": "first name shorter than 2 characters",
+      "data": { "firstName": "I" },
+      "field": "nama_depan",
+      "message": "Nama depan minimal 2 karakter"
+    },
+    {
+      "title": "last name shorter than 2 characters",
+      "data": { "lastName": "A" },
+      "field": "nama_belakang",
+      "message": "Nama belakang minimal 2 karakter"
+    },
+    {
+      "title": "password shorter than 6 characters",
+      "data": { "password": "abc1" },
+      "field": "password",
+      "message": "Password minimal 6 karakter"
+    },
+    {
+      "title": "password without a number",
+      "data": { "password": "Password" },
+      "field": "password",
+      "message": "Password harus memiliki 1 karakter dan 1 angka"
+    },
+    {
+      "title": "confirm password does not match",
+      "data": { "password": "Password123", "confirmPassword": "Password321" },
+      "field": "konfirmasi_password",
+      "message": "Konfirmasi password tidak sesuai"
+    },
+    {
+      "title": "phone number shorter than 8 digits",
+      "data": { "phone": "8123" },
+      "field": "nomor_ponsel",
+      "message": "Nomor ponsel minimal 8 karakter"
+    }
+  ]
+}

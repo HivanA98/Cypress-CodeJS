@@ -1,0 +1,8 @@
+export { default as header } from './components/Header'
+export { default as homePage } from './HomePage'
+export { default as loginPage } from './LoginPage'
+export { default as searchResultPage } from './SearchResultPage'
+export { default as productDetailPage } from './ProductDetailPage'
+export { default as cartPage } from './CartPage'
+export { default as checkoutPage } from './CheckoutPage'
+export { default as profilePage } from './ProfilePage'

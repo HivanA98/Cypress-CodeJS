@@ -1,22 +1,23 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
-  chromeWebSecurity: false,
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    reportDir: 'cypress/reports',
+    reportPageTitle: 'DemoQA - Test Report',
+    charts: true,
+    embeddedScreenshots: true,
+    inlineAssets: true,
+  },
   e2e: {
-    baseUrl: "https://demoqa.com",
+    baseUrl: 'https://demoqa.com',
+    viewportWidth: 1366,
+    viewportHeight: 768,
+    defaultCommandTimeout: 10000,
+    retries: { runMode: 1, openMode: 0 },
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      require('cypress-mochawesome-reporter/plugin')(on)
+      return config
     },
   },
-
-  reporter: "cypress-multi-reporters",
-  reporterOptions: {
-    reporterEnabled: "mochawesome",
-    mochawesomeReporterOptions: {
-      reportDir: "cypress/reports",
-      overwrite: false,
-      html: false,
-      json: true
-    }
-  }
-});
+})

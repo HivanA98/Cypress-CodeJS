@@ -1,0 +1,40 @@
+name: Karate API
+
+on:
+  push:
+    branches: [master]
+    paths: ['API_Karate_Framework/**', '.github/workflows/karate.yml']
+  pull_request:
+    paths: ['API_Karate_Framework/**', '.github/workflows/karate.yml']
+  schedule:
+    - cron: '0 1 * * 1' # every Monday 08:00 WIB
+  workflow_dispatch:
+
+jobs:
+  api:
+    name: API_Karate_Framework
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: API_Karate_Framework
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: maven
+
+      - name: Run Karate tests
+        run: mvn -B test
+
+      - name: Upload Karate report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: report-karate
+          path: API_Karate_Framework/target/karate-reports
+          if-no-files-found: ignore
+          retention-days: 14

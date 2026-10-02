@@ -1,42 +1,24 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
-Cypress.Commands.add('login', (username, password)=> {
-    cy.clearCookies()
-    cy.clearLocalStorage()
-    
-    cy.get("#user_login").clear();
-    cy.get("#user_login").type(username);
-            
-    cy.get('#user_password').clear();
-    cy.get('#user_password').type(password);
-
-    cy.get('#user_remember_me').click({ force: true })
-    
-    cy.get('input.btn.btn-primary').click()
-
-    
+/**
+ * Login secara programatik (tanpa UI) dengan mengirim form login lewat cy.request,
+ * lalu simpan cookie-nya dengan cy.session. Jauh lebih cepat daripada login lewat UI.
+ * Halaman login sendiri tetap diuji lewat UI di login.cy.js.
+ */
+Cypress.Commands.add('loginByApi', () => {
+  cy.fixture('users').then(({ valid }) => {
+    cy.session(['zero-bank', valid.username], () => {
+      cy.request({
+        method: 'POST',
+        url: '/signin.html',
+        form: true,
+        body: {
+          user_login: valid.username,
+          user_password: valid.password,
+          submit: 'Sign in',
+        },
+        followRedirect: false,
+      })
+        .its('status')
+        .should('eq', 302)
+    })
+  })
 })
