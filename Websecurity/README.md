@@ -36,6 +36,18 @@ Cypress.Commands.add('loginByApi', () => {
 
 The login **UI itself** is still covered in `login.cy.js`.
 
+## 🩹 Resilient to a degraded target site
+
+Zero Bank no longer serves its own JavaScript and CSS (`/resources/*` returns **404**), so the pages render
+unstyled and inline scripts throw `$ is not defined`. The suite keeps testing real behaviour instead of breaking:
+
+| Problem on the site                   | How the suite handles it                                          |
+| ------------------------------------- | ----------------------------------------------------------------- |
+| Inline scripts throw `ReferenceError` | Only these specific errors are ignored in `support/e2e.js`        |
+| Bootstrap dropdown cannot open        | Logout follows the plain `/logout.html` link                      |
+| jQuery UI tabs do not load            | The tab link is clicked and opens the form page directly          |
+| Success message is injected by jQuery | Payment is verified on the **server response** via `cy.intercept` |
+
 ## 🧪 Test coverage
 
 | Spec                 | Tests | Scenarios                                                                                     |

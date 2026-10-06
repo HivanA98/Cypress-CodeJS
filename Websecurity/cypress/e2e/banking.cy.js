@@ -55,15 +55,15 @@ describe('Online Banking', () => {
 
   context('Pay Bills', () => {
     it('pays a saved payee', () => {
-      payBillsPage.visit().paySavedPayee({
+      const payment = {
         payee: 'Bank of America',
         account: 'Checking',
         amount: 120,
         date: new Date().toISOString().slice(0, 10),
         description: 'Credit card bill',
-      })
+      }
 
-      payBillsPage.resultMessage.should('contain.text', 'The payment was successfully submitted.')
+      payBillsPage.visit().paySavedPayee(payment).shouldConfirmPayment(payment.amount)
     })
   })
 })
