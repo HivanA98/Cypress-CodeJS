@@ -23,12 +23,18 @@ class PayBillsPage {
     return cy.get('#pay_saved_payees')
   }
 
-  get resultMessage() {
-    return cy.get('#alert_content')
-  }
-
   visit() {
     cy.visit('/bank/pay-bills.html')
+    return this.openTab('Pay Saved Payee')
+  }
+
+  /**
+   * Tab di halaman ini adalah link biasa yang di-load lewat AJAX oleh jQuery UI.
+   * Jika JS website tidak termuat, klik link membuka halaman form-nya secara langsung,
+   * jadi cara ini bekerja di kedua kondisi.
+   */
+  openTab(tabName) {
+    cy.contains('#tabs a', tabName).click()
     return this
   }
 
@@ -40,7 +46,23 @@ class PayBillsPage {
     // Field tanggal memakai jQuery datepicker; ketik lalu tutup popup-nya.
     if (date) this.dateInput.type(`${date}{esc}`)
     if (description) this.descriptionInput.type(description)
+
+    cy.intercept('POST', '/bank/pay-bills-saved-payee.html').as('payBill')
     this.payButton.click()
+    return this
+  }
+
+  /**
+   * Pesan sukses dibuat oleh server di dalam script halaman, lalu ditampilkan oleh jQuery.
+   * Karena jQuery website saat ini 404, verifikasi dilakukan pada response server
+   * sehingga test tetap memastikan pembayaran diterima.
+   */
+  shouldConfirmPayment(amount) {
+    cy.wait('@payBill').then(({ response }) => {
+      expect(response.statusCode).to.eq(200)
+      expect(response.body).to.include('The payment was successfully submitted.')
+      expect(response.body).to.include(`$ ${amount} payed to payee`)
+    })
     return this
   }
 }

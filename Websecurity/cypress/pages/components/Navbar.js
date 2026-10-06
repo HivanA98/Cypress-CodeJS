@@ -16,9 +16,10 @@ class Navbar {
   }
 
   logout() {
-    // Link logout ada di dropdown yang tersembunyi; buka dropdown lalu klik.
-    cy.get('.icon-user').click()
-    cy.get('#logout_link').click()
+    // Link logout berada di dropdown Bootstrap. Dropdown hanya bisa dibuka jika JS/CSS
+    // website termuat, padahal saat ini file tersebut 404. Link-nya adalah href biasa
+    // ke /logout.html, jadi klik langsung dengan force agar tidak bergantung pada dropdown.
+    cy.get('#logout_link').click({ force: true })
     return this
   }
 }
